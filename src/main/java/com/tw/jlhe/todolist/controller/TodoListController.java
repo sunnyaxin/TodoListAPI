@@ -1,7 +1,7 @@
 package com.tw.jlhe.todolist.controller;
 
+import com.tw.jlhe.todolist.entity.TodoItem;
 import com.tw.jlhe.todolist.model.MessageResponse;
-import com.tw.jlhe.todolist.model.OptTodoItem;
 import com.tw.jlhe.todolist.service.TodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +25,14 @@ public class TodoListController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> createItem(@Valid @RequestBody OptTodoItem newTodoItem){
+    public ResponseEntity<?> createItem(@Valid @RequestBody TodoItem newTodoItem){
         newTodoItem.setTimestamp(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(new Date()));
         MessageResponse messageResponse = todoListService.createTodoItem(newTodoItem);
         return ResponseEntity.status(messageResponse.getStatus()).body(messageResponse);
     }
 
     @RequestMapping(value = "/{id}" , method = RequestMethod.PUT)
-    public ResponseEntity<?> updateItem(@PathVariable int id , @Valid @RequestBody OptTodoItem updateTodoItem) {
+    public ResponseEntity<?> updateItem(@PathVariable int id , @Valid @RequestBody TodoItem updateTodoItem) {
         updateTodoItem.setTimestamp(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(new Date()));
         MessageResponse messageResponse = todoListService.updateTodoItem(id , updateTodoItem);
         return ResponseEntity.status(messageResponse.getStatus()).body(messageResponse);

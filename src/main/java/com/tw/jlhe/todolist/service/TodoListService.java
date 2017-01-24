@@ -2,7 +2,6 @@ package com.tw.jlhe.todolist.service;
 
 import com.tw.jlhe.todolist.entity.TodoItem;
 import com.tw.jlhe.todolist.model.MessageResponse;
-import com.tw.jlhe.todolist.model.OptTodoItem;
 import com.tw.jlhe.todolist.repository.TodoListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,7 @@ public class TodoListService {
     }
 
 
-    public MessageResponse createTodoItem(OptTodoItem newTodoItem) {
+    public MessageResponse createTodoItem(TodoItem newTodoItem) {
         TodoItem todoItem = new TodoItem();
         todoItem.setText(newTodoItem.getText());
         todoItem.setTimestamp(newTodoItem.getTimestamp());
@@ -37,7 +36,7 @@ public class TodoListService {
         return new MessageResponse("Create todo item is successful!",201, result);
     }
 
-    public MessageResponse updateTodoItem(int id , OptTodoItem updateTodoItem) {
+    public MessageResponse updateTodoItem(int id , TodoItem updateTodoItem) {
         if(todoListRepository.exists(id)) {
             TodoItem item = todoListRepository.findOne(id);
             item.setDone(updateTodoItem.isDone());
