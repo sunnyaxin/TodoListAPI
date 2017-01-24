@@ -2,7 +2,6 @@ package com.tw.jlhe.todolist.service;
 
 import com.tw.jlhe.todolist.entity.TodoItem;
 import com.tw.jlhe.todolist.model.MessageResponse;
-import com.tw.jlhe.todolist.model.OptTodoItem;
 import com.tw.jlhe.todolist.repository.TodoListRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,7 +55,7 @@ public class TodoListServiceTest {
 
     @Test
     public void shouldReturnMessageResponseWithSuccessfulAnd201StatusCodeAndItemWhenCreateItem() throws Exception {
-        OptTodoItem createItem = new OptTodoItem("test case");
+        TodoItem createItem = new TodoItem("test case");
         MessageResponse messageResponse =  todoListService.createTodoItem(createItem);
         assertEquals("Create todo item is successful!",messageResponse.getMessage());
         assertEquals(201, messageResponse.getStatus());
@@ -66,7 +65,7 @@ public class TodoListServiceTest {
 
     @Test
     public void shouldReturnMessageResponseWithSuccessfulAnd200StatusCodeAndItemWhenUpdateItem() throws Exception {
-        OptTodoItem updateItem = new OptTodoItem("test update", true);
+        TodoItem updateItem = new TodoItem("test update", true);
         MessageResponse messageResponse = todoListService.updateTodoItem(1, updateItem);
         assertEquals("Update todo item is successful!", messageResponse.getMessage());
         assertEquals(200, messageResponse.getStatus());
@@ -78,7 +77,7 @@ public class TodoListServiceTest {
 
     @Test
     public void shouldReturnMessageResponseWithFailAnd404StatusCodeWhenItemNotFound() throws Exception {
-        OptTodoItem updateItem = new OptTodoItem("test update", true);
+        TodoItem updateItem = new TodoItem("test update", true);
         MessageResponse messageResponse = todoListService.updateTodoItem(2, updateItem);
         assertEquals("This todo item is not found!", messageResponse.getMessage());
         assertEquals(404, messageResponse.getStatus());
