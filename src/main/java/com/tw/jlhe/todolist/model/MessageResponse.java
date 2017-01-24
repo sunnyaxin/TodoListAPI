@@ -1,6 +1,6 @@
 package com.tw.jlhe.todolist.model;
 
-import com.tw.jlhe.todolist.Entity.TodoItem;
+import com.tw.jlhe.todolist.entity.TodoItem;
 
 public class MessageResponse {
 

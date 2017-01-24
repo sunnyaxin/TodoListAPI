@@ -1,4 +1,4 @@
-package com.tw.jlhe.todolist.Entity;
+package com.tw.jlhe.todolist.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;

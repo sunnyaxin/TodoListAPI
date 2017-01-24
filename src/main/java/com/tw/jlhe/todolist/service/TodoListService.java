@@ -1,6 +1,6 @@
 package com.tw.jlhe.todolist.service;
 
-import com.tw.jlhe.todolist.Entity.TodoItem;
+import com.tw.jlhe.todolist.entity.TodoItem;
 import com.tw.jlhe.todolist.model.MessageResponse;
 import com.tw.jlhe.todolist.model.OptTodoItem;
 import com.tw.jlhe.todolist.repository.TodoListRepository;

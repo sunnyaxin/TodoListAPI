@@ -1,7 +1,7 @@
 package com.tw.jlhe.todolist.controller;
 
 import com.tw.jlhe.todolist.Application;
-import com.tw.jlhe.todolist.Entity.TodoItem;
+import com.tw.jlhe.todolist.entity.TodoItem;
 import com.tw.jlhe.todolist.model.MessageResponse;
 import com.tw.jlhe.todolist.service.TodoListService;
 import org.junit.Before;

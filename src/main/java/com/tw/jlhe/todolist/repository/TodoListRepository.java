@@ -1,6 +1,6 @@
 package com.tw.jlhe.todolist.repository;
 
-import com.tw.jlhe.todolist.Entity.TodoItem;
+import com.tw.jlhe.todolist.entity.TodoItem;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
