@@ -1,0 +1,165 @@
+swagger: '2.0'
+info:
+  title: Todo API
+  description: A simple API to manage your todo tasks.
+  version: "1.0.0"
+# the domain of the service
+host: todo.bla.com
+# array of all schemes that your API supports
+schemes:
+  - http
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /todoitems:
+    get:
+      summary: list todo items
+      description: list todo items
+      responses:
+        200:
+          description: todo
+          schema: 
+            $ref: '#/definitions/TodoItemsResponse'
+          examples:
+            application/json: |-
+              {
+                  "items": [
+                      {
+                          "id": 1,
+                          "timestamp": "2011-01-21T11:33:21Z",
+                          "text": "finish todo list",
+                          "done": false
+                      },
+                      {
+                           "id": 2,
+                          "timestamp": "2011-01-21T11:33:21Z",
+                          "text": "finish the homework",
+                          "done": true
+                      }
+                  ]
+              }
+        default:
+          description: Internal server error
+    post:
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      summary: create a todo item
+      description: create a todo item
+      parameters:
+        - name: todoItem
+          in: body
+          description: the todo item going to create
+          required: true
+          schema:
+            $ref: '#/definitions/NewTodoItem'
+      responses:
+        201:
+          description: todo
+          schema: 
+            $ref: '#/definitions/TodoItem'
+          examples:
+            application/json: |-
+              {
+                  "id": 1,
+                  "timestamp": "2011-01-21T11:33:21Z",
+                  "text": "finish todo list",
+                  "done": false
+              }
+        400:
+          description: invalid parameter
+        default:
+          description: Internal server error
+  /todoitems/{id}:
+    put:
+      description: update a todo item
+      parameters:
+        - name: id
+          in: path
+          description: ID of todo item
+          required: true
+          type: integer
+          format: int64
+        - name: todoItem
+          in: body
+          description: properties to update for a todo item
+          required: true
+          schema:
+            $ref: '#/definitions/UpdatedTodoItem'
+      responses:
+        "200":
+          description: response for updating a todo item
+          schema:
+            $ref: '#/definitions/TodoItem'
+          examples:
+            application/json: |-
+              {
+                  "id": 1,
+                  "timestamp": "2011-01-21T11:33:21Z",
+                  "text": "finish todo list",
+                  "done": true
+              }
+        400:
+          description: invalid parameter
+        404:
+          description: can not find a todo item according to the id given
+        default:
+          description: unexpected error
+    delete:
+      description: delete a todo item
+      parameters:
+        - name: id
+          in: path
+          description: ID of todo item to delete
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "204":
+          description: todo item deleted
+definitions:
+  UpdatedTodoItem:
+    type: object
+    properties:
+      text:
+        type: string
+        description: the content of the todo item
+        maxLength: 140
+      done:
+        type: boolean
+        description: the done status of a todo item
+  NewTodoItem:
+    type: object
+    properties:
+      text:
+        type: string
+        description: the content of the todo item
+        maxLength: 140
+  TodoItem:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: the id the this todo item
+      text:
+        type: string
+        description: the content of the todo item
+        maxLength: 140
+      done:
+        type: boolean
+        description: if the item has been finished
+      timestamp:
+        type: string
+        format: date-time
+        description: when the item was created/updated 
+  TodoItemsResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+              $ref: '#/definitions/TodoItem'
