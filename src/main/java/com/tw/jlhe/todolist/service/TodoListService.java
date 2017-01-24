@@ -33,7 +33,8 @@ public class TodoListService {
         todoItem.setText(newTodoItem.getText());
         todoItem.setTimestamp(newTodoItem.getTimestamp());
         todoItem.setDone(false);
-        return new MessageResponse("Create todo item successful.",201,todoListRepository.save(todoItem));
+        TodoItem result = todoListRepository.save(todoItem);
+        return new MessageResponse("Create todo item is successful!",201, result);
     }
 
     public MessageResponse updateTodoItem(int id , OptTodoItem updateTodoItem) {
@@ -42,7 +43,8 @@ public class TodoListService {
             item.setDone(updateTodoItem.isDone());
             item.setText(updateTodoItem.getText());
             item.setTimestamp(updateTodoItem.getTimestamp());
-            return new MessageResponse("Update todo item is successful!",200,todoListRepository.save(item));
+            TodoItem result = todoListRepository.save(item);
+            return new MessageResponse("Update todo item is successful!",200, result);
         }else{
             return new MessageResponse("This todo item is not found!",404);
         }
@@ -51,9 +53,9 @@ public class TodoListService {
     public MessageResponse deleteTodoItem(int id) {
         if(todoListRepository.exists(id)){
             todoListRepository.delete(id);
-            return new MessageResponse("Delete todo item option is successful",204);
+            return new MessageResponse("Delete todo item option is successful!",204);
         }else{
-            return new MessageResponse("This todo item is not found!",404);
+                return new MessageResponse("This todo item is not found!",404);
         }
 
     }

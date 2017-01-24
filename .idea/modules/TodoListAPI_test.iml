@@ -16,6 +16,7 @@
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-jdbc:1.4.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.4.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-test:1.4.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.jacoco:org.jacoco.agent:0.7.7.201606060606" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.hateoas:spring-hateoas:0.20.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE" level="project" />

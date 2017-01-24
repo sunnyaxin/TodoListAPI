@@ -52,4 +52,5 @@ public class TodoItem {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
 }

@@ -13,6 +13,7 @@ buildscript{
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'jacoco'
 apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
@@ -21,6 +22,12 @@ targetCompatibility = 1.8
 jar {
     baseName = 'gs-to-do-list-api'
     version =  '0.1.0'
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
 }
 
 repositories {
@@ -40,6 +47,9 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+
+    compile group: 'org.jacoco', name: 'org.jacoco.agent', version: '0.7.7.201606060606'
+
 
     testCompile group: 'junit', name: 'junit'
 

@@ -15,6 +15,10 @@ public class OptTodoItem {
     public OptTodoItem() {
     }
 
+    public OptTodoItem(String text) {
+        this.text = text;
+    }
+
     public OptTodoItem(String text, boolean done) {
         this.text = text;
         this.done = done;

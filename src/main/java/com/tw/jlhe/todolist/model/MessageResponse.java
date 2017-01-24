@@ -6,10 +6,11 @@ public class MessageResponse {
 
     private TodoItem todoItem;
     private String message;
+
     private int status;
 
-    public MessageResponse() {
-    }
+//    public MessageResponse() {
+//    }
 
     public MessageResponse(String message, int status){
         this.message = message;
@@ -26,23 +27,23 @@ public class MessageResponse {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+//    public void setMessage(String message) {
+//        this.message = message;
+//    }
 
     public int getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
+//    public void setStatus(int status) {
+//        this.status = status;
+//    }
 
     public TodoItem getTodoItem() {
         return todoItem;
     }
 
-    public void setTodoItem(TodoItem todoItem) {
-        this.todoItem = todoItem;
-    }
+//    public void setTodoItem(TodoItem todoItem) {
+//        this.todoItem = todoItem;
+//    }
 }
