@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "/todoitems")
 public class TodoListController {
 
