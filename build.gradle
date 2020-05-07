@@ -13,7 +13,6 @@ buildscript{
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'jacoco'
 apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
@@ -24,12 +23,6 @@ jar {
     version =  '0.1.0'
 }
 
-jacocoTestReport {
-    group = "Reporting"
-    description = "Generate Jacoco coverage reports after running tests."
-    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-}
-
 repositories {
     mavenCentral()
 }
@@ -38,18 +31,11 @@ dependencies {
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas'
 
-    compile group: 'mysql', name: 'mysql-connector-java'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-
-    compile group: 'org.jacoco', name: 'org.jacoco.agent', version: '0.7.7.201606060606'
-
-    testCompile group: 'junit', name: 'junit'
-
 }
